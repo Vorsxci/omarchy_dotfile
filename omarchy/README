@@ -1,0 +1,12 @@
+# INFORMATION ON SURVIVING/PERSISTING CONF
+
+Note: When Omarchy updates from git, it will replace/update/overwrite files in ~/.local/share/Omarchy/default/. So, to have custom configs that need to be global (ex:hypr/autostart.conf, perhaps nvim files, etc), they need to have duplicate directories within ~/.local/share/omarchy/config that Omarchy will prioritize as overrides.
+
+# IF WANT TO MODIFY HYPR GLOBAL SHENANIGANS:
+modify ~/.config/omarchy/hypr
+
+#IF WANT TO HAVE CUSTOM SCRIPTS RUNNING WITHIN OMARCHY ITSELF:
+nvim [scriptname].fileextention within ~/.config/omarchy/customscripts!!
+
+#IF WANT TO MODIFY ANY OTHER GLOBAL CONFs UNDER OMARCHY DEFAULTS:
+mkdir [same name as dir from default] and put any files you want to override defaults with within it (MAKE SURE THEY SHARE THE SAME PATH WITHIN THE FOLDER AS THEIR COUNTERPART IN ~/.local/share/omarchy/default/!!)
