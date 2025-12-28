@@ -24,6 +24,7 @@ window#waybar {
 
 #comworkspaces,
 #mpris,
+#custom-logo,
 #custom-clock-jp,
 #center-indicators,
 #tray-expander,
@@ -60,4 +61,8 @@ window#waybar {
 
 #custom-memory.warning {
   color: rgba (1, 1, 1, 1);
+}
+
+#custom-logo {
+  background-image: url("/home/kazuki/.config/omarchy/themes/solr-dark/SOLR_OS_Logo.png");
 }
