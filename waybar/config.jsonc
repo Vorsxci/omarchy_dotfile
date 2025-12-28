@@ -8,8 +8,7 @@
   "modules-center": ["custom/logo", "custom/clock-jp", "group/center-indicators"],
   "modules-right": [
     "group/tray-expander",
-    "group/bluetoothstuff",
-    "pulseaudio",
+
     "network",
     "custom/memory",
     "cpu",
@@ -211,12 +210,13 @@
   "custom/bluetooth-name": {
   "exec": "bash -lc '~/.config/waybar/scripts/bt-name.sh'",
   "interval": 3,
-  "tooltip": false
+  "tooltip-format": "Devices connected: {num_connections}",
+  "on-click": "omarchy-launch-bluetooth"
 },
 
 
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
+    "format": "{icon} {volume}%",
     "on-click": "omarchy-launch-or-focus-tui wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
@@ -232,7 +232,7 @@
       "transition-duration": 600,
       "children-class": "tray-group-item"
     },
-    "modules": ["custom/expand-icon", "tray"]
+    "modules": ["custom/expand-icon", "tray", "pulseaudio", "group/bluetoothstuff"]
   },
   "custom/expand-icon": {
     "format": " ",
