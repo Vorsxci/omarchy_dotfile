@@ -22,6 +22,7 @@ window#waybar {
 }
 
 #comworkspaces,
+#custom-logo,
 #mpris,
 #custom-clock-jp,
 #center-indicators,
@@ -55,5 +56,9 @@ window#waybar {
   color: rgba(254, 251, 208, 0.92);
 }
 
+
+#custom-logo {
+  background-image: url("/home/kazuki/.config/omarchy/themes/lunr/LUNR_OS_Logo.png");
+}
 
 
