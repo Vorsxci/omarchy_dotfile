@@ -33,6 +33,7 @@ window#waybar {
 /* Chips */
 #comworkspaces,
 #mpris,
+#custom-logo,
 #custom-clock-jp,
 #center-indicators,
 #tray-expander,
@@ -56,6 +57,10 @@ window#waybar {
 
 .modules-right {
   margin-right: 8px;
+}
+
+.modules-center {
+  margin-left: -50px;
 }
 
 #workspaces button {
@@ -175,3 +180,29 @@ tooltip {
 #custom-memory.critical {
   color: rgba(255, 152, 152, 0.92);
 }
+
+#custom-logo {
+
+  border-radius: 40px;
+
+  /* spacing consistent with your chips */
+  padding: 2px 13px;
+  margin: 0 1px;
+  
+
+
+  /* make sure the box exists even though format is just " " */
+  min-width: 40px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px 28px;
+
+}
+
+
+
+
+
+
+
