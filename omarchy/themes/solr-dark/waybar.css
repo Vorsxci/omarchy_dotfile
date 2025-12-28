@@ -28,8 +28,7 @@ window#waybar {
 #custom-clock-jp,
 #center-indicators,
 #tray-expander,
-#bluetoothstuff,
-#pulseaudio,
+
 #network,
 #custom-memory,
 #cpu,
@@ -37,6 +36,15 @@ window#waybar {
 #power {
   background: @background;
   border: 2px solid @border;
+}
+
+#tray,
+#pulseaudio,
+#bluetoothstuff {
+ 
+  border-right: 1px solid @border;
+  padding-right: 6px;
+
 }
 
 #mpris.paused {
