@@ -34,11 +34,12 @@ ln -nsf "$THEME_PATH" "$CURRENT_THEME_DIR"
 omarchy-theme-bg-next
 
 # Restart components to apply new theme
+omarchy-restart-swaync
 omarchy-restart-waybar
 omarchy-restart-swayosd
 hyprctl reload
 pkill -SIGUSR2 btop
-makoctl reload
+#makoctl reload
 
 # Change gnome, browser, vscode themes
 omarchy-theme-set-terminal
@@ -65,8 +66,9 @@ fi
 # Run script to sync sddm
 $HOME/.config/omarchy/customscripts/omarchy-sddm-theme-sync.sh
 
-
-
-
+# Extra restarts??
+#omarchy-restart-waybar
+#hyprctl reload
+#swaync reload
 
 
