@@ -64,7 +64,7 @@ window#waybar {
 
 #workspaces button {
   all: initial;
-  font-family: 'CaskaydiaMono Nerd Font', 'Noto Sans CJK JP', sans-serif;
+  font-family: 'CaskaydiaMono Nerd Font';
   padding: 0 5px;
   margin: 0 1.5px;
   min-width: 9px;
@@ -98,7 +98,7 @@ window#waybar {
 
 #custom-bluetooth-name {
   margin-left: 0px;
-  margin-right: 10px;
+  margin-right: 4px;
 }
 
 #pulseaudio {
