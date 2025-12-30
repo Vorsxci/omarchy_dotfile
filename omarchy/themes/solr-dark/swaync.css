@@ -1,0 +1,5 @@
+@define-color base     #2E3440;
+@define-color border   #FF9898;  /* salmon */
+@define-color border2  #FFCA98;  /* peach */
+@define-color text     #D8DEE9;  /* (matches your Walker text define) */
+
