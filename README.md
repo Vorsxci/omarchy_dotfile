@@ -52,4 +52,8 @@ Scripts sourced for custom modules are in ~/.config/waybar/scripts/
 Walker configuration now lives inside of ~/.config/walker, with /themes/ handling all of the customization in appearance. Just modify the
 style.css file within the theme folder, and make sure that theme is declared for use in ~/.config/walker/config.toml
 
-------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+All files in ~/.config that I care about are now symlinked to gh via stow. Script to "autosync"
+is dotfile-update-from-git.sh! It will autogen .bak files if they do not exist, before adopting changes.
+Beware of breakage (this is why have baks...because baby got bak)
+
