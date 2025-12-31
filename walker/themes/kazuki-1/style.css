@@ -8,7 +8,7 @@
 .box-wrapper {
   border-radius: 18px;
   padding: 22px;
-  background: alpha(@base, 0.92);
+  background: alpha(@base, 0.95);
   border: 3px solid @border2;
 
   /* glow + depth */
