@@ -1,7 +1,10 @@
 @import "../omarchy-default/style.css";
 @import "../../../../.config/omarchy/current/theme/walker.css";
 
-/* your overrides below */
+/* =========================
+   Window container
+   ========================= */
+
 .box-wrapper {
   border-radius: 18px;
   padding: 22px;
@@ -14,20 +17,20 @@
     0 18px 46px rgba(0, 0, 0, 0.50),
     0 6px 16px rgba(0, 0, 0, 0.35),
 
-    /* --- your original glow --- */
-    0 0 0 1px alpha(@border2, 0.6),    /* crisp edge */
-    0 0 12px alpha(@border, 0.35),     /* inner glow */
-    0 0 36px alpha(@border, 0.25);     /* outer glow */
+    /* --- glow --- */
+    0 0 0 1px alpha(@border2, 0.6),
+    0 0 12px alpha(@border, 0.35),
+    0 0 36px alpha(@border, 0.25);
 }
 
-/* Helps the shadow read cleanly as “floating” */
+/* Helps the shadow read cleanly as floating */
 window {
   background: transparent;
 }
 
-
-
-
+/* =========================
+   Input + hints
+   ========================= */
 
 .input:focus {
   box-shadow: 0 0 0 2px alpha(@border, 0.5);
@@ -40,73 +43,71 @@ window {
   margin-top: 12px;
 }
 
-/* --- Subtle list highlight (Walker default structure) --- */
+/* =========================
+   List rows (Walker)
+   ========================= */
 
-/* Remove “card” separation + borders/shadows */
+/* Base row */
 .item-box {
   border: none;
   box-shadow: none;
   margin: 0;
-  padding: 8px 10px;            /* tighter, like the screenshot */
+  padding: 10px 10px;
   border-radius: 12px;
-
-  /* default state = no tint */
   background: transparent;
 }
 
-/* Hover = very light tint */
+/* Hover = light tint ONLY (no border) */
 child:hover .item-box {
   background: alpha(@text, 0.06);
 }
 
-/* Selected = slightly stronger tint */
+/* =========================
+   SELECTED — gradient BORDER
+   ========================= */
+
 child:selected .item-box {
   background: alpha(@text, 0.10);
 
-  /* add a subtle SOLR gradient that lives on the right side */
-  background-image: linear-gradient(
+  /* border must exist for border-image */
+  border: 3px solid transparent;
+  border-radius: 12px;
+
+  /* GTK-supported gradient border */
+  border-image: linear-gradient(
     to left,
-    alpha(@grad1, 0.4) 0%,
-    /*alpha(@grad2, 0.6) 9%,*/
-    alpha(@grad3, 0.8) 18%,
-    alpha(@grad4, 0.4) 36%,
-    alpha(@grad5, 0) 50%,
-    transparent 100%
-  );
+    rgba(0, 0, 0, 0) 0%,
+    alpha(@grad1, 0.40) 18%,
+    alpha(@grad3, 0.80) 36%,
+    alpha(@grad4, 0.40) 50%,
+    alpha(@grad5, 0.00) 75%,
+    transparent
+  ) 1;
 
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: right center;
+  /* subtle lift so it reads "active" */
+  box-shadow: 
 
-  /* optional: makes it feel “keyed higher” without a hard border */
-  box-shadow: inset -1px 0 0 alpha(@grad2, 0);
+  0 0 0 1px alpha(@grad3, 0.10);
 }
 
-/* Keep selected text readable (default already changes text color) */
+/* Keep selected text readable */
 child:selected .item-box * {
   color: @selected-text;
 }
 
 /* =========================
-   Spacing + density tuning
+   Density tuning
    ========================= */
 
-/* Reduce overall row height */
-.item-box {
-  padding: 10px 10px;      /* vertical | horizontal */
-}
-
-/* Reduce vertical spacing inside text area */
 .item-text-box {
-  padding: 6px 0;         /* was 14px 0 */
+  padding: 6px 0;
 }
 
-/* Optional: tighten icon alignment slightly */
 .item-image {
-  margin-right: 10px;     /* was 14px */
+  margin-right: 10px;
 }
 
-/* Ensure no extra spacing sneaks in from children */
+/* Prevent spacing creep */
 child,
 child > * {
   margin: 0;
