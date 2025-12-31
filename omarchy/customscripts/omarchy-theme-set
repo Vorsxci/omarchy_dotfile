@@ -64,7 +64,7 @@ else
 fi
 
 # Run script to sync sddm
-$HOME/.config/omarchy/customscripts/omarchy-sddm-theme-sync.sh
+#$HOME/.config/omarchy/customscripts/omarchy-sddm-theme-sync.sh
 
 # Extra restarts??
 #omarchy-restart-waybar

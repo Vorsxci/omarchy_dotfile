@@ -18,15 +18,23 @@ window,
   border-radius: 18px;
   padding: 22px;
 
-  /* base -> gradient starting halfway */
-  background: linear-gradient(
-    90deg,
-    alpha(@base, 0.92) 0%,
-    alpha(@base, 0.92) 50%,
-    alpha(@border, 0.88) 100%
-  );
+  /* base -> gradient starting halfway (your existing fill) */
+  background: alpha(@base, 0.95);
 
-  border: 3px solid @border2;
+  /* GRADIENT BORDER (Walker-style, GTK-compatible) */
+  border: 4px solid transparent; /* required for border-image */
+  border-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0) 0%,
+    alpha(@grad1, 1) 18%,
+    /*alpha(@grad2, 0.60) 9%,*/
+    alpha(@grad3, 1) 36%,
+    alpha(@grad4, 1) 50%,
+    alpha(@grad5, 1) 75%,
+    rgba(0, 0, 0, 0) 100%,
+    transparent 55%,
+    transparent 100%
+  ) 1;
 
   /* Exact Walker glow stack (unchanged) */
   box-shadow:
