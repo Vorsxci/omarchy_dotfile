@@ -62,6 +62,24 @@ child:hover .item-box {
 /* Selected = slightly stronger tint */
 child:selected .item-box {
   background: alpha(@text, 0.10);
+
+  /* add a subtle SOLR gradient that lives on the right side */
+  background-image: linear-gradient(
+    to left,
+    alpha(@grad1, 0.4) 0%,
+    alpha(@grad2, 0.6) 9%,
+    alpha(@grad3, 0.8) 18%,
+    alpha(@grad4, 0.4) 36%,
+    alpha(@grad5, 0) 50%,
+    transparent 100%
+  );
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: right center;
+
+  /* optional: makes it feel “keyed higher” without a hard border */
+  box-shadow: inset -1px 0 0 alpha(@grad2, 0);
 }
 
 /* Keep selected text readable (default already changes text color) */
