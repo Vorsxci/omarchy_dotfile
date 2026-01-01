@@ -22,13 +22,13 @@ theme[title]="#F4A340"
 theme[hi_fg]="#FF6557"
 
 # Background color of selected item in processes box
-theme[selected_bg]="#FFDCA0"
+theme[selected_bg]="#FF6557"
 
 # Foreground color of selected item in processes box
 theme[selected_fg]="#FFF8D6"
 
 # Color of inactive/disabled text
-theme[inactive_fg]="#FFDCA0"
+theme[inactive_fg]="#545454"
 
 # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
 theme[proc_misc]="#FF9898"
