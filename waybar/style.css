@@ -43,7 +43,7 @@ window#waybar {
 #cpu,
 #custom-temperature,
 #power { 
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 0px 6px;
   margin: 0 1px;
 }
@@ -77,7 +77,7 @@ window#waybar {
 #mpris {
   margin-right: 10px;
   padding: 0 8px;
-  border-radius: 6px;
+
 }
 
 
@@ -185,7 +185,7 @@ tooltip {
 
 #custom-logo {
 
-  border-radius: 40px;
+  /*border-radius: 40px;*/
 
   /* spacing consistent with your chips */
   padding: 2px 13px;
