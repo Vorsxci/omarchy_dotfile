@@ -1,14 +1,15 @@
-@define-color foreground #B8BCC8; /* text */
+@define-color foreground #dbdbdb; /* text */
 @define-color background #12141A; /* base */
 @define-color border     #F2D38A; /* gold rim */
 @define-color accent     #7B6C9D; /* soft violet */
 
 
 window#waybar {
-  background: @transparent;
-  border: 2px solid rgba(242, 211, 138, 0.35);
-  border: none;
+  background: alpha(@background, 0.8);
+  border: 0.5px solid alpha(@border, 0.3);
+  border-radius: 1px
 }
+
 
 .modules-left,
 .modules-right {
@@ -35,7 +36,7 @@ window#waybar {
 #custom-temperature,
 #power {
   background: @background;
-  border: 2px solid @border;
+  border: 1px solid @border;
 }
 
 #tray,
