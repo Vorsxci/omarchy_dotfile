@@ -49,6 +49,7 @@ shape {
   position = $(( BAT_X + FILL_CENTER_X )), ${BAT_Y}
   halign = center
   valign = center
+  zindex = 5
 }
 EOF
 
