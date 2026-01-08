@@ -13,7 +13,24 @@ set -euo pipefail
 PACKAGES=(
   swaync
   stow
+  mpv
   mpvpaper
+  fcitx5-qt
+  fcitx5-mozc
+  fcitx5-gtk
+  fcitx5-configtool
+  fcitx5
+  inxi
+  imagemagick
+  sof
+  sof-firmware
+  ttf-cascadia-code-nerd
+  ttf-zen-maru-gothic
+  zotero
+  alsa-utils
+  downgrade
+
+
   # add more here...
   # wl-clip-persist (example)
 )
