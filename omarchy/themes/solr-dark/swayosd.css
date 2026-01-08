@@ -1,8 +1,8 @@
 @define-color background-color #2E3440;
 @define-color border-color #1e66f5;
-@define-color label #4c4f69;
-@define-color image #4c4f69;
-@define-color progress #4c4f69;
+@define-color label #FF6557;
+@define-color image #F4A340;
+@define-color progress #FF6557;
 
 
 @define-color redorange #FF6557;
