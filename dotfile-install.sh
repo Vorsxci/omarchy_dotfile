@@ -3,11 +3,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# =========================
-# Omarchy install script
-# - Installs required packages (Arch/pacman)
-# - Runs post-install scripts
-# =========================
+
 
 # ---- Packages to ensure are installed ----
 PACKAGES=(

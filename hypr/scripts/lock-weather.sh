@@ -7,6 +7,36 @@ CACHE_DIR="$HOME/.cache/hyprlock"
 OUT_FILE="$CACHE_DIR/weather_out.txt"   # "bucket|temp"
 mkdir -p "$CACHE_DIR"
 
+CFG="$HOME/.config/hypr/scripts/weather.conf"
+
+MODE="city"
+CITY=""
+LAT=""
+LON=""
+
+if [[ -f "$CFG" ]]; then
+  # shellcheck disable=SC1090
+  source "$CFG"
+fi
+
+# Tooltip text depending on mode
+tooltip="weather"
+if [[ "${MODE:-city}" == "coords" ]]; then
+  if [[ -n "${LAT:-}" && -n "${LON:-}" ]]; then
+    tooltip="📍 ${LAT}, ${LON}"
+  else
+    tooltip="📍 coords"
+  fi
+else
+  # city mode
+  if [[ -n "${CITY:-}" ]]; then
+    tooltip="📍 ${CITY}"
+  else
+    tooltip="📍 city"
+  fi
+fi
+
+
 bucket="cloudy"
 temp="--°C"
 
@@ -30,6 +60,15 @@ case "$PART" in
   cloudy) [[ "$bucket" == "cloudy" ]] && echo "$CLOUD" || echo "" ;;
   rain)   [[ "$bucket" == "rain"   ]] && echo "$RAIN"  || echo "" ;;
   snow)   [[ "$bucket" == "snow"   ]] && echo "$SNOW"  || echo "" ;;
+  json)
+  text="${icon} ${temp}"
+  cls="${bucket}"
+  printf '{"text":"%s","class":"%s","tooltip":"%s"}\n' \
+    "$(printf '%s' "$text")" \
+    "$(printf '%s' "$cls")" \
+    "$(printf '%s' "$tooltip")"
+  ;;
+
   full|*) echo "$icon $temp" ;;
 esac
 

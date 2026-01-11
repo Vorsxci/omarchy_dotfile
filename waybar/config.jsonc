@@ -4,7 +4,7 @@
   "position": "top",
   "spacing": 0,
   "height": 26,
-  "modules-left": ["group/comworkspaces", "mpris"],
+  "modules-left": ["group/comworkspaces", "mpris", "custom/weather"],
   "modules-center": ["custom/logo", "custom/clock-jp", "group/center-indicators"],
   "modules-right": [
     "group/tray-expander",
@@ -112,6 +112,17 @@
   "artist-len": 15,
   "title-len": 10,
   "album-len": 0
+},
+
+"custom/weather": {
+  "format": "{}",
+  "return-type": "json",
+  "font-family": "CaskaydiaCove Nerd Font Mono",
+  "interval": 30,
+  "exec": "LOCK_WEATHER_PART=json /home/kazuki/.config/hypr/scripts/lock-weather.sh",
+  "tooltip": true,
+  "on-click": "kitty --class omarchy-weathercfg -e /home/kazuki/.config/waybar/scripts/weather-config-tui.sh"
+
 },
 
 "custom/memory": {

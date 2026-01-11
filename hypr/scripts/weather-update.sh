@@ -1,21 +1,43 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+CFG="$HOME/.config/hypr/scripts/weather.conf"
+# Defaults if config missing
+MODE="city"
+CITY="Indianapolis"
+LAT="39.7684"
+LON="-86.1581"
+
+if [[ -f "$CFG" ]]; then
+  # shellcheck disable=SC1090
+  source "$CFG"
+fi
+
 CACHE_DIR="$HOME/.cache/hyprlock"
-OUT_FILE="$CACHE_DIR/weather_out.txt"
+OUT_FILE="$CACHE_DIR/weather_out.txt"   # "bucket|temp"
 mkdir -p "$CACHE_DIR"
 
-LAT="18.026"
-LON="-63.045"
+# --- Fetch from Open-Meteo (no key), ALWAYS Celsius
+# We need weather_code + temperature_2m
+if [[ "${MODE}" == "coords" ]]; then
+  url="https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,weather_code&temperature_unit=celsius"
+else
+  # Resolve CITY -> LAT/LON via Open-Meteo geocoding (no key)
+  geo="https://geocoding-api.open-meteo.com/v1/search?name=$(printf '%s' "$CITY" | sed 's/ /%20/g')&count=1&language=en&format=json"
+  geo_json="$(
+    /usr/bin/curl -4 -fsS --connect-timeout 2 --max-time 4 -A "hyprlock-weather/1.0" \
+      "$geo" 2>/dev/null || true
+  )"
+  lat="$(echo "$geo_json" | grep -oE '"latitude":[-0-9.]+' | head -n1 | cut -d: -f2 || true)"
+  lon="$(echo "$geo_json" | grep -oE '"longitude":[-0-9.]+' | head -n1 | cut -d: -f2 || true)"
 
-URL="https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,weather_code&temperature_unit=celsius"
+  [[ -z "$lat" || -z "$lon" ]] && exit 0
+  url="https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&temperature_unit=celsius"
+fi
 
 json="$(
-  /usr/bin/curl -4 -fsS \
-    --connect-timeout 2 \
-    --max-time 4 \
-    -A "hyprlock-weather/1.0" \
-    "$URL" 2>/dev/null || true
+  /usr/bin/curl -4 -fsS --connect-timeout 2 --max-time 4 -A "hyprlock-weather/1.0" \
+    "$url" 2>/dev/null || true
 )"
 [[ -z "$json" ]] && exit 0
 
@@ -27,6 +49,7 @@ t_int="$(printf "%.0f" "$t" 2>/dev/null || echo "")"
 [[ -z "$t_int" ]] && exit 0
 temp="${t_int}°C"
 
+# Map Open-Meteo weather codes to buckets
 bucket="cloudy"
 if [[ "$code" == "0" ]]; then
   bucket="sunny"

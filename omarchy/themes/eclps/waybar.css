@@ -5,9 +5,10 @@
 
 
 window#waybar {
-  background: alpha(@background, 0.8);
+  background: transparent;
   border: 0.5px solid alpha(@border, 0.3);
-  border-radius: 1px
+  border-radius: 1px;
+  border: none
 }
 
 
@@ -29,7 +30,7 @@ window#waybar {
 #custom-clock-jp,
 #center-indicators,
 #tray-expander,
-
+#custom-weather,
 #network,
 #custom-memory,
 #cpu,
@@ -74,5 +75,21 @@ window#waybar {
 
 #custom-logo {
   background-image: url("/home/kazuki/.config/omarchy/themes/eclps/ECLPS_OS_Logo.png");
+}
+
+#custom-weather.sunny {
+  color: rgba(244, 163, 64, 1.0);  /* orange */
+}
+
+#custom-weather.cloudy {
+  color: rgba(235, 235, 235, 1.0); /* white */
+}
+
+#custom-weather.rain {
+  color: rgba(120, 180, 255, 1.0); /* blue */
+}
+
+#custom-weather.snow {
+  color: rgba(200, 230, 255, 1.0); /* white-blue */
 }
 
