@@ -3,11 +3,12 @@ set -euo pipefail
 
 PART="${LOCK_WEATHER_PART:-full}"
 
-CACHE_DIR="$HOME/.cache/hyprlock"
-OUT_FILE="$CACHE_DIR/weather_out.txt"   # "bucket|temp"
+CACHE_DIR="$HOME/.cache/weather"
+OUT_FILE="$CACHE_DIR/weather_out.txt"
+
 mkdir -p "$CACHE_DIR"
 
-CFG="$HOME/.config/hypr/scripts/weather.conf"
+CFG="$HOME/.config/weather.conf"
 
 MODE="city"
 CITY=""

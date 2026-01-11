@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CFG="$HOME/.config/hypr/scripts/weather.conf"
+CFG="$HOME/.config/weather.conf"
 # Defaults if config missing
 MODE="city"
 CITY="Indianapolis"
@@ -13,8 +13,8 @@ if [[ -f "$CFG" ]]; then
   source "$CFG"
 fi
 
-CACHE_DIR="$HOME/.cache/hyprlock"
-OUT_FILE="$CACHE_DIR/weather_out.txt"   # "bucket|temp"
+CACHE_DIR="$HOME/.cache/weather"
+OUT_FILE="$CACHE_DIR/weather_out.txt"
 mkdir -p "$CACHE_DIR"
 
 # --- Fetch from Open-Meteo (no key), ALWAYS Celsius
