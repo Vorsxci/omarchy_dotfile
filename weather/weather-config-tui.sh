@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CONF="$HOME/.config/weather.conf"
+CONF="$HOME/.config/weather/weather.conf"
 SERVICE="weather-update.service"
 
 # Defaults if file missing
