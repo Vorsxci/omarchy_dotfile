@@ -119,9 +119,9 @@
   "return-type": "json",
   "font-family": "CaskaydiaCove Nerd Font Mono",
   "interval": 30,
-  "exec": "LOCK_WEATHER_PART=json /home/kazuki/.config/hypr/scripts/lock-weather.sh",
+  "exec": "LOCK_WEATHER_PART=json /home/kazuki/.config/weather/weather-read.sh",
   "tooltip": true,
-  "on-click": "xdg-terminal-exec --app-id=TUI.float -e /home/kazuki/.config/waybar/scripts/weather-config-tui.sh"
+  "on-click": "xdg-terminal-exec --app-id=TUI.float -e /home/kazuki/.config/weather/weather-config-tui.sh"
 
 },
 

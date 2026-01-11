@@ -8,7 +8,7 @@ OUT_FILE="$CACHE_DIR/weather_out.txt"
 
 mkdir -p "$CACHE_DIR"
 
-CFG="$HOME/.config/weather.conf"
+CFG="$HOME/.config/weather/weather.conf"
 
 MODE="city"
 CITY=""

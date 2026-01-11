@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CFG="$HOME/.config/weather.conf"
+CFG="$HOME/.config/weather/weather.conf"
 # Defaults if config missing
 MODE="city"
 CITY="Indianapolis"
